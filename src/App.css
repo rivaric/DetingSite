@@ -10,3 +10,8 @@ body{
   font-family: 'Open Sans', sans-serif;
   background:#e2e2e2;
 }
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}

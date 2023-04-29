@@ -4,23 +4,23 @@ import './RegisterForm.scss';
 export default function RegisterForm() {
     return (
         <>
-            <div class="container">
+            <div className="containerRegister">
 
                 <h2>register</h2>
                 <form>
-                    <input type="text" class="email" placeholder="first "/>
+                    <input type="text" className="email" placeholder="first name"/>
                     <br/>
-                    <input type="text" class="pwd" placeholder="last "/>
+                    <input type="text" className="pwd" placeholder="last name"/>
                     <br/>
-                    <input type="text" class="pwd" placeholder="years"/>
+                    <input type="text" className="pwd" placeholder="years"/>
                     <br/>
-                    <input type="text" class="email" placeholder="email"/>
+                    <input type="text" className="email" placeholder="email"/>
                     <br/>
-                    <input type="text" class="pwd" placeholder="password"/>
+                    <input type="text" className="pwd" placeholder="password"/>
                     <br/>
-                    <input type="text" class="email" placeholder="Repeat password"/>
+                    <input type="text" className="email" placeholder="Repeat password"/>
                 </form>
-                <Link to='/login' className="register">
+                <Link to='/' className="register">
                     <button >
                         <span>login</span>
                     </button>

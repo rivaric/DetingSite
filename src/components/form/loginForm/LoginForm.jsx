@@ -4,22 +4,22 @@ import './LoginForm.scss';
 export default function LoginForm() {
     return (
         <>
-            <div class="container1">
+            <div className="containerLogin">
 
                 <h2>login</h2>
                 <form>
-                    <input type="text" class="email" placeholder="email"/>
+                    <input type="text" className="email" placeholder="email"/>
                     <br/>
-                    <input type="text" class="pwd" placeholder="password"/>
+                    <input type="text" className="pwd" placeholder="password"/>
                 </form>
                 <br/>
                 <Link to='/register'>
-                    <button class="register">
+                    <button className="register">
                         <span>register</span>
                     </button>
                 </Link>
                 <Link to='/main'>
-                    <button class="signin">
+                    <button className="signin">
                         <span>sign in</span>
                     </button>
                 </Link>

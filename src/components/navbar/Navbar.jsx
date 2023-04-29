@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, createRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { gsap } from "gsap";
 
 import './Navbar.scss';
@@ -10,27 +10,22 @@ const Navbar = () => {
     {
       name: "Profile",
       color: "#f44336",
-      href: "#"
+      href: "profile"
     },
     {
-      name: "Chats",
+      name: "Home",
       color: "#e91e63",
-      href: "#"
-    },
-    {
-      name: "Director",
-      color: "#9c27b0",
-      href: "#"
+      href: "home"
     },
     {
       name: "Settings",
       color: "#673ab7",
-      href: "#"
+      href: "settings"
     },
     {
       name: "Help",
       color: "#3f51b5",
-      href: "#"
+      href: "help"
     }
   ];
 
@@ -78,33 +73,39 @@ const Navbar = () => {
   }, [active])
   
   return (
-    <div
+    <>
+      <div
       ref={$root}
       className="menu"
-    >
-      {items.map((item, index) => (
-        <Link
-          to='profile'
-          key={item.name}
-          ref={$items.current[index]}
-          className={`item ${active === index ? 'active' : ''}`}
-          onMouseEnter={() => {
-            setActive(index)
-          }}
-          href={item.href}
-         >
-          {item.name}
-        </Link>
-      ))}
-      <div
-        ref={$indicator1}
-        className="indicator"
-       />
-      <div
-        ref={$indicator2}
-        className="indicator"
-       />
-    </div>
+      >
+        {items.map((item, index) => (
+          <Link
+            to={item.href}
+            key={item.name}
+            ref={$items.current[index]}
+            className={`item ${active === index ? 'active' : ''}`}
+            onMouseEnter={() => {
+              setActive(index)
+            }}
+            href={item.href}
+          >
+            {item.name}
+          </Link>
+        ))}
+        <div
+          ref={$indicator1}
+          className="indicator"
+        />
+        <div
+          ref={$indicator2}
+          className="indicator"
+        />
+      </div>
+
+      <div className="container">
+        <Outlet/>
+      </div>
+    </>
   )
 }
 

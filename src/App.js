@@ -1,17 +1,29 @@
 import { Route, Routes } from 'react-router-dom';
 
-import LoginPage from './pages/login/LoginPage';
-import RegisterPage from './pages/register/RegisterPage';
-import MainPage from './pages/main/MainPage';
+import LoginForm from './components/form/loginForm/LoginForm';
+import RegisterForm from './components/form/registerForm/RegisterForm';
+import Navbar from './components/navbar/Navbar';
+import BackgroungeCircle from './components/backgroungeCircle/BackgroungeCircle';
+import Home from './components/home/Home';
+import Profile from './components/profile/Profile';
+import Settings from './components/settings/Settings';
+import Help from './components/help/Help';
 
 import './App.css';
 
 function App() {
   return (
     <Routes>
-      <Route exact path='/login' Component={LoginPage} />
-      <Route exact path='/register' Component={RegisterPage} />
-      <Route exact path='/main' Component={MainPage} />
+      <Route path='/' element={<BackgroungeCircle/>}>
+        <Route index element={<LoginForm/>} />
+        <Route path='register' element={<RegisterForm/>} />
+        <Route path='main' element={<Navbar/>}>
+          <Route path='profile' element={<Profile/>}/>
+          <Route path='home' element={<Home/>}/>
+          <Route path='settings' element={<Settings/>}/>
+          <Route path='help' element={<Help/>}/>
+        </Route>
+      </Route>
     </Routes>
   );
 }
