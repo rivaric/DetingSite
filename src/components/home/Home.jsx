@@ -1,12 +1,17 @@
 import Cards from "../cards/Cards";
 import Chat from "../chat/Chat";
+import Selection from "../selection/Selection";
 
+import './Home.scss'
 
 export default function Home() {
     return (
-        <div className="Home">
+        <div className="home">
             <Chat/>
-            <Cards/>
+            <div className="">
+                <Cards/>
+                <Selection/>
+            </div>
         </div>
     )
 }

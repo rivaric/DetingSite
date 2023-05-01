@@ -2,9 +2,10 @@ import { useRef, useState, useEffect, createRef } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { gsap } from "gsap";
 
-import './Navbar.scss';
+import './Layout.scss';
+import Footer from "../footer/Footer";
 
-const Navbar = () => {
+const Layout = () => {
 
   const items = [
     {
@@ -104,9 +105,11 @@ const Navbar = () => {
 
       <div className="container">
         <Outlet/>
+        <Footer/>
       </div>
+
     </>
   )
 }
 
-export default Navbar;
+export default Layout;
