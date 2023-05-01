@@ -11,54 +11,58 @@
         height: 300px;
     }
     &__descr {
-        padding: 20px;
-        text-align: center;
-    }
-    &__text {
-        margin-top: 30px;
-        margin-bottom: 15px;
-    }
-}
-
-.zodiac {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    height: 75px;
-    top: 260px;
-    left: 40px;
-    width: 150px;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    padding: 13px 15px;
-    &::before {
-        position: absolute;
-        top: 0;
-        left: 75px;
-        content: '';
-        height: 100%;
-        background-color: black;
-        width: 1px;
-    }
-    &__img {
-        width: 50px;
-    }
-    &__text {
-        transform: translateX(10px) translateY(4px);
-        font-size: 30px;
+        display: grid;
+        column-gap: 30px;
+        grid-template-columns: 200px 100px;
+        grid-template-rows: 100px;
+        padding: 40px;
+        text-align: left;
+        & ul {
+            margin-left: 20px;
+        }
     }
 }
 
-.name {
-    width: 150px;
+// .zodiac {
+//     position: absolute;
+//     display: flex;
+//     justify-content: space-between;
+//     height: 75px;
+//     top: 260px;
+//     left: 40px;
+//     width: 150px;
+//     border-radius: 20px;
+//     background-color: #fff;
+//     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+//     padding: 13px 15px;
+//     &::before {
+//         position: absolute;
+//         top: 0;
+//         left: 75px;
+//         content: '';
+//         height: 100%;
+//         background-color: black;
+//         width: 1px;
+//     }
+//     &__img {
+//         width: 50px;
+//     }
+//     &__text {
+//         transform: translateX(10px) translateY(4px);
+//         font-size: 30px;
+//     }
+// }
+
+.title {
+    display: inline-block;
     height: 75px;
     border-radius: 20px;
     background-color: #fff;
     position: absolute;
     top: 260px;
-    left: 275px;
+    left: 30px;
+    padding-right: 30px;
     padding-top: 13px;
-    text-align: center;
+    padding-left: 30px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }

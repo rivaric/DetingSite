@@ -19,7 +19,7 @@ function App() {
         <Route path='register' element={<RegisterForm/>} />
         <Route path='main' element={<Layout/>}>
           <Route path='profile' element={<Profile/>}/>
-          <Route path='home' element={<Home/>}/>
+          <Route index element={<Home/>}/>
           <Route path='settings' element={<Settings/>}/>
           <Route path='help' element={<Help/>}/>
         </Route>

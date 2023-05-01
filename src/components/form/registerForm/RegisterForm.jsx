@@ -8,25 +8,25 @@ export default function RegisterForm() {
 
                 <h2>register</h2>
                 <form>
-                    <input type="text" className="email" placeholder="first name"/>
+                    <input type="text" className="email inputForm" placeholder="first name"/>
                     <br/>
-                    <input type="text" className="pwd" placeholder="last name"/>
+                    <input type="text" className="pwd inputForm" placeholder="last name"/>
                     <br/>
-                    <input type="text" className="pwd" placeholder="years"/>
+                    <input type="text" className="pwd inputForm" placeholder="years"/>
                     <br/>
-                    <input type="text" className="email" placeholder="email"/>
+                    <input type="text" className="email inputForm" placeholder="email"/>
                     <br/>
-                    <input type="text" className="pwd" placeholder="password"/>
+                    <input type="text" className="pwd inputForm" placeholder="password"/>
                     <br/>
-                    <input type="text" className="email" placeholder="Repeat password"/>
+                    <input type="text" className="email inputForm" placeholder="Repeat password"/>
                 </form>
                 <Link to='/' className="register">
-                    <button >
+                    <button className='buttonForm'>
                         <span>login</span>
                     </button>
                 </Link>
                 <Link className="signin">
-                    <button >
+                    <button className='buttonForm'>
                         <span>sign up</span>
                     </button>
                 </Link>

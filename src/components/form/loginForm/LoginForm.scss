@@ -19,7 +19,7 @@ h2{
   color:#414141;
 }
 
-input{
+.inputForm{
   display:block;
   height:50px;
   width:90%;
@@ -78,10 +78,9 @@ input{
 
 
 
-button{
+.buttonForm{
   cursor:pointer; 
   display:inline-block;
-  float:left;
   width:250px;
   height:60px;
   margin-top:45px;

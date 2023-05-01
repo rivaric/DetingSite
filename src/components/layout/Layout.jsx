@@ -16,7 +16,7 @@ const Layout = () => {
     {
       name: "Home",
       color: "#e91e63",
-      href: "home"
+      href: ""
     },
     {
       name: "Settings",
