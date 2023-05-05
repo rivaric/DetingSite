@@ -1,16 +1,35 @@
 import { Link } from 'react-router-dom';
 import './LoginForm.scss';
+import { useContext, useState } from 'react';
+import { Context } from '../../..';
 
 export default function LoginForm() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const {store} = useContext(Context);
+
     return (
         <>
             <div className="containerLogin">
 
                 <h2>login</h2>
                 <form>
-                    <input type="text" className="email inputForm" placeholder="email"/>
+                    <input 
+                        onChange={e => setEmail(e.target.value)}
+                        value={email}
+                        type="text" 
+                        className="email inputForm" 
+                        placeholder="email"
+                        />
                     <br/>
-                    <input type="text" className="pwd inputForm" placeholder="password"/>
+                    <input
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
+                        type="password" 
+                        className="pwd inputForm" 
+                        placeholder="password"
+                        />
                 </form>
                 <br/>
                 <Link to='/register'>
@@ -19,7 +38,10 @@ export default function LoginForm() {
                     </button>
                 </Link>
                 <Link to='/main'>
-                    <button className='buttonForm'>
+                    <button 
+                        onClick={() => store.login(email, password)} 
+                        className='buttonForm'
+                        >
                         <span>sign in</span>
                     </button>
                 </Link>
