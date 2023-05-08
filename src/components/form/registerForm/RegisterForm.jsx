@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import './RegisterForm.scss';
 import { useState, useContext } from 'react';
 import { Context } from '../../..';
+import { observer } from 'mobx-react-lite';
 
-export default function RegisterForm() {
+export default observer(function RegisterForm() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [years, setYears] = useState('');
@@ -65,7 +66,7 @@ export default function RegisterForm() {
                 </Link>
                 <Link className="signin">
                     <button 
-                        onClick={() => store.registration(email, password)} 
+                        onClick={() => store.registration(firstName, lastName, years, email, password)} 
                         className='buttonForm'
                     >
                         <span>sign up</span>
@@ -77,4 +78,4 @@ export default function RegisterForm() {
             </div>
         </>
     )
-}
+})

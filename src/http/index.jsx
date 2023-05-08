@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_URL = 'https://ognyahskiy.github.io'
+export const API_URL = 'http://127.0.0.1:5000'
 
 const api = axios.create({
     withCredentials: true,
@@ -9,7 +9,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
-    return config
+    return config;
 })
 
 export default api;

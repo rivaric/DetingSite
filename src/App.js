@@ -10,8 +10,20 @@ import Settings from './components/settings/Settings';
 import Help from './components/help/Help';
 
 import './App.css';
+import { useContext, useEffect } from 'react';
+import { Context } from '.';
+import { observer } from 'mobx-react-lite';
 
 function App() {
+  const {store} = useContext(Context)
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      store.checkAuth()
+    }
+  })
+
+
   return (
     <Routes>
       <Route path='/' element={<BackgroungeCircle/>}>
@@ -28,4 +40,6 @@ function App() {
   );
 }
 
-export default App;
+
+
+export default observer(App);

@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import './LoginForm.scss';
 import { useContext, useState } from 'react';
 import { Context } from '../../..';
+import { observer } from 'mobx-react-lite';
 
-export default function LoginForm() {
+export default observer(function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -51,4 +52,4 @@ export default function LoginForm() {
             </div>
         </>
     )
-}
+})
