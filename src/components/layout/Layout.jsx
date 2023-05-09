@@ -3,7 +3,6 @@ import { Link, Outlet } from "react-router-dom";
 import { gsap } from "gsap";
 
 import './Layout.scss';
-import Footer from "../footer/Footer";
 
 const Layout = () => {
 
@@ -105,7 +104,6 @@ const Layout = () => {
 
       <div className="container">
         <Outlet/>
-        <Footer/>
       </div>
 
     </>

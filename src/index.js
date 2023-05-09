@@ -17,7 +17,7 @@ root.render(
 		store
 	}}>
 		<BrowserRouter>
-    	<App />
-  	</BrowserRouter>
+    		<App />
+  		</BrowserRouter>
 	</Context.Provider>
 );

@@ -66,7 +66,7 @@ export default observer(function RegisterForm() {
                 </Link>
                 <Link className="signin">
                     <button 
-                        onClick={() => store.registration(firstName, lastName, years, email, password)} 
+                        onClick={() => store.registration(firstName, lastName, email, password)}  
                         className='buttonForm'
                     >
                         <span>sign up</span>

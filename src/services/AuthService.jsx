@@ -5,8 +5,9 @@ export default class AuthService {
         return api.post('/login', {email, password})
     }
 
-    static async registertation(firstName, lastName, years, email, password){
-        return api.post('/register', {firstName, email, password})
+    static async registertation(firstName, lastName, email, password) {
+        const username = firstName + ' ' + lastName 
+        return api.post('/register', {username, email, password})
     }
 
     static async logout() {
