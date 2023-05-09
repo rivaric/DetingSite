@@ -22,7 +22,7 @@
         position: absolute;
         top: 400px;
         left: 0;
-        padding-left: 40px;
+        padding: 0 40px;
         color: #fff;
     }
     &__name {
@@ -31,10 +31,20 @@
         text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
         margin-bottom: 10px;
     }
+    &__text {
+        text-align: left;
+    }
 }
 
 .section {
+    position: absolute;
+    top: 500px;
+    left: 40px;
     display: flex;
-    width: 250px;
+    width: 380px;
     justify-content: space-between;
+}
+
+.wrapper_whiteButton {
+    margin-left: 20px;
 }

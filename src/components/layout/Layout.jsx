@@ -1,5 +1,6 @@
-import { useRef, useState, useEffect, createRef } from "react";
+import { useRef, useState, useEffect, createRef, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { Context } from "../..";
 import { gsap } from "gsap";
 
 import './Layout.scss';
@@ -8,19 +9,19 @@ const Layout = () => {
 
   const items = [
     {
-      name: "Profile",
-      color: "#f44336",
-      href: "profile"
-    },
-    {
       name: "Home",
       color: "#e91e63",
       href: ""
     },
     {
-      name: "Settings",
+      name: "Profile",
+      color: "#f44336",
+      href: "profile"
+    },
+    {
+      name: "likes",
       color: "#673ab7",
-      href: "settings"
+      href: "likes"
     },
     {
       name: "Help",
@@ -28,13 +29,14 @@ const Layout = () => {
       href: "help"
     }
   ];
-
-
+  
+  
   const $root = useRef()
   const $indicator1 = useRef()
   const $indicator2 = useRef()
   const $items = useRef(items.map(createRef))
   const [ active, setActive ] = useState(0)
+  const {store} = useContext(Context);
   
   const animate = () => {
     const menuOffset = $root.current.getBoundingClientRect()
@@ -63,14 +65,16 @@ const Layout = () => {
   
   useEffect(() => {
     // other code
-    animate()
-    window.addEventListener('resize', animate)
-    
-    return (() => {
-      window.removeEventListener('resize', animate)
-    })    
+    if (store.isAuth) {
+      animate()
+      window.addEventListener('resize', animate)
+      
+      return (() => {
+        window.removeEventListener('resize', animate)
+      })    
+    }
      // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active])
+  }, [active, store.isAuth])
   
   return (
     <>
@@ -80,14 +84,15 @@ const Layout = () => {
       >
         {items.map((item, index) => (
           <Link
-            to={item.href}
+            to={store.isAuth ? item.href : ''}
             key={item.name}
             ref={$items.current[index]}
-            className={`item ${active === index ? 'active' : ''}`}
-            onMouseEnter={() => {
+            className={store.isAuth ? `item ${active === index ? 'active' : ''}` : 'item'}
+            onClick={() => {
               setActive(index)
             }}
             href={item.href}
+            pointerEvents = {store.isAuth ? '' : 'none'}
           >
             {item.name}
           </Link>

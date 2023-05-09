@@ -1,23 +1,22 @@
-import { Link } from 'react-router-dom';
-import './RegisterForm.scss';
 import { useState, useContext } from 'react';
 import { Context } from '../../..';
 import { observer } from 'mobx-react-lite';
 
-export default observer(function RegisterForm() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+import './EditForm.scss'
+
+export default observer(function EditForm() {
+    const {store} = useContext(Context);
+    const [firstName, setFirstName] = useState(store.user.username.split(' ')[0]);
+    const [lastName, setLastName] = useState(store.user.username.split(' ')[1]);
     const [years, setYears] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const {store} = useContext(Context);
 
     return (
-        <>
-            <div className="containerRegister">
+        <div className="containerEdit">
 
-                <h2>register</h2>
+                <h2>Editing</h2>
                 <form>
                     <input
                         type="text" 
@@ -58,21 +57,8 @@ export default observer(function RegisterForm() {
                         onChange={e => setPassword(e.target.value)}
                         value={password}
                     />
+                    <textarea rows='2' className="email inputForm inputDescr" placeholder='Description'/>
                 </form>
-                <Link to='/' className="register">
-                    <button className='buttonForm'>
-                        <span>login</span>
-                    </button>
-                </Link>
-                <Link className="signin">
-                    <button 
-                        onClick={() => store.registration(firstName, lastName, email, password)}  
-                        className='buttonForm'
-                    >
-                        <span>sign up</span>
-                    </button>
-                </Link>
             </div>
-        </>
     )
 })

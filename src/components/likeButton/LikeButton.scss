@@ -1,13 +1,8 @@
 .svgLikeButton{
-  cursor:pointer; overflow:visible; width:80px;
+  cursor:pointer; overflow:visible; width:70px; height: 80px;
   #heart{transform-origin:center; animation:animateHeartOut .3s linear forwards;}
   #main-circ{transform-origin:29.5px 29.5px;}
 }
-
-// #main-content {
-//     position: absolute;
-//     top: 0;
-// }
 
 #checkbox{display:none;}
 

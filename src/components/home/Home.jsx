@@ -8,7 +8,7 @@ export default function Home() {
         <div className="home">
             <Chat/>
             <div className="">
-                <Cards/>
+                <Cards username='Илья Кречин' descr='Привет, меня зовут Илья' />
             </div>
         </div>
     )
