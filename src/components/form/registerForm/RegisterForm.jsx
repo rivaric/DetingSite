@@ -7,7 +7,6 @@ import { observer } from 'mobx-react-lite';
 export default observer(function RegisterForm() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-    const [years, setYears] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -35,14 +34,14 @@ export default observer(function RegisterForm() {
                         value={lastName}
                     />
                     <br/>
-                    <input 
+                    {/* <input 
                         type="text" 
                         className="pwd inputForm" 
                         placeholder="years"
                         onChange={e => setYears(e.target.value)}
                         value={years}
-                    />
-                    <br/>
+                    /> */}
+                    {/* <br/> */}
                     <input 
                         type="text" 
                         className="email inputForm" 

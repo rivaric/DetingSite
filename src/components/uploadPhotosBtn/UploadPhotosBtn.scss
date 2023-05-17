@@ -1,0 +1,24 @@
+.uploadPhotosBtn {
+    cursor: pointer;
+    position: absolute;
+    top: -15px;
+    left: 420px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: all 0.4s;
+    & img {
+        position: absolute;
+        width: 60%;
+        height: 60%;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    &:hover {
+        background-color: rgb(125, 194, 255);
+        transform: scale(1.3);
+    }
+}

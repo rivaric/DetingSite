@@ -43,17 +43,17 @@ export default class Store {
         }
     }
 
-    async logout() {
-        try {
-            const response = await AuthService.logout();
-            console.log(response);
-            localStorage.removeItem('token', response.data.accessToken);
-            this.setAuth(false);
-            this.setUser({})
-        } catch (e) {
-            console.log(e.response?.data?.message);
-        }
-    }
+    // async logout() {
+    //     try {
+    //         const response = await AuthService.logout();
+    //         console.log(response);
+    //         localStorage.removeItem('token', response.data.accessToken);
+    //         this.setAuth(false);
+    //         this.setUser({})
+    //     } catch (e) {
+    //         console.log(e.response?.data?.message);
+    //     }
+    // }
 
     async checkAuth() {
         try {

@@ -4,6 +4,7 @@ import { Context } from "../..";
 import { gsap } from "gsap";
 
 import './Layout.scss';
+import CloseButton from "../closeButton/CloseButton";
 
 const Layout = () => {
 
@@ -106,6 +107,8 @@ const Layout = () => {
           className="indicator"
         />
       </div>
+
+      <CloseButton onClick={() => store.logout}/>
 
       <div className="container">
         <Outlet/>

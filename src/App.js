@@ -20,11 +20,11 @@ function App() {
   const navigata = useNavigate();
   const {store} = useContext(Context);
 
-  //useEffect(() => {
+  // useEffect(() => {
   //  if (localStorage.getItem('token')) {
   //    store.checkAuth()
   //  }
-  //})
+  // })
 
   useEffect(() => {
     if (!store.isAuth) {
