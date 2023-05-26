@@ -15,7 +15,6 @@ export default observer(function RegisterForm() {
     return (
         <>
             <div className="containerRegister">
-
                 <h2>register</h2>
                 <form>
                     <input
@@ -63,7 +62,7 @@ export default observer(function RegisterForm() {
                         <span>login</span>
                     </button>
                 </Link>
-                <Link className="signin">
+                <Link className="signin" to='/main'>
                     <button 
                         onClick={() => store.registration(firstName, lastName, email, password)}  
                         className='buttonForm'

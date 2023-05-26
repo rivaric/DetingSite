@@ -16,7 +16,7 @@ export default observer(function EditForm() {
     return (
         <div className="containerEdit">
 
-                <h2>Editing</h2>
+                <h2 style={{paddingBottom: 20, paddingTop: 30}}>Editing</h2>
                 <form>
                     <input
                         type="text" 
@@ -58,6 +58,7 @@ export default observer(function EditForm() {
                         value={password}
                     />
                     <textarea rows='2' className="email inputForm inputDescr" placeholder='Description'/>
+                    <button className='buttonForm' style={{width: '100%'}}>Edit</button>
                 </form>
             </div>
     )

@@ -23,11 +23,6 @@ const Layout = () => {
       name: "likes",
       color: "#673ab7",
       href: "likes"
-    },
-    {
-      name: "Help",
-      color: "#3f51b5",
-      href: "help"
     }
   ];
   
@@ -108,7 +103,7 @@ const Layout = () => {
         />
       </div>
 
-      <CloseButton onClick={() => store.logout}/>
+      <CloseButton />
 
       <div className="container">
         <Outlet/>

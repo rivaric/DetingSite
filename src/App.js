@@ -2,12 +2,11 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 
 import LoginForm from './components/form/loginForm/LoginForm';
 import RegisterForm from './components/form/registerForm/RegisterForm';
-import Layout from './components/layout/Layout'
+import Layout from './components/layout/Layout';
 import BackgroungeCircle from './components/backgroungeCircle/BackgroungeCircle';
 import Home from './components/home/Home';
 import Profile from './components/profile/Profile';
-import Likes from './components/likes/Likes'
-import Help from './components/help/Help';
+import Likes from './components/likes/Likes';
 import NotAuth from './components/notAuth/NotAuth';
 
 import './App.css';
@@ -20,18 +19,12 @@ function App() {
   const navigata = useNavigate();
   const {store} = useContext(Context);
 
-  // useEffect(() => {
-  //  if (localStorage.getItem('token')) {
-  //    store.checkAuth()
-  //  }
-  // })
-
   useEffect(() => {
     if (!store.isAuth) {
       navigata('/main', {replace : true})
     }
     // eslint-disable-next-line
-  }, [store.isAuth])
+  }, [])
 
 
   return (
@@ -46,13 +39,11 @@ function App() {
                 <Route path='profile' element={<Profile/>}/>
                 <Route index element={<Home/>}/>
                 <Route path='likes' element={<Likes />}/>
-                <Route path='help' element={<Help/>}/>
             </> :
             <>
                 <Route index element={<NotAuth />}/>
             </>
         }
-
         </Route>
       </Route>
     </Routes>

@@ -1,6 +1,6 @@
 import api from "../http";
 
-export default class AuthService {
+export default class Service {
     static async login(email, password) {
         return api.post('/login', {email, password})
     }

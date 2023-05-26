@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import AuthService from "../services/AuthService";
+import Service from "../services/Service";
 import axios from "axios";
 import { API_URL } from "../http";
 
@@ -21,9 +21,10 @@ export default class Store {
 
     async login(email, password) {
         try {
-            const response = await AuthService.login(email, password);
+            const response = await Service.login(email, password);
             console.log(response);
-            localStorage.setItem('token', response.data.accessToken);
+            localStorage.setItem('token', response.data.access_token);
+            localStorage.setItem('token_ref', response.data['refresh token']);
             this.setAuth(true);
             this.setUser(response.data)
         } catch (e) {
@@ -33,9 +34,10 @@ export default class Store {
 
     async registration(firstName, lastName, email, password) {
         try {
-            const response = await AuthService.registration(firstName, lastName, email, password);
+            const response = await Service.registration(firstName, lastName, email, password);
             console.log(response);
-            localStorage.setItem('token', response.data.accessToken);
+            localStorage.setItem('token', response.data.access_token);
+            localStorage.setItem('token_ref', response.data['refresh token']);
             this.setAuth(true);
             this.setUser(response.data.user)
         } catch (e) {
@@ -43,22 +45,25 @@ export default class Store {
         }
     }
 
-    // async logout() {
-    //     try {
-    //         const response = await AuthService.logout();
-    //         console.log(response);
-    //         localStorage.removeItem('token', response.data.accessToken);
-    //         this.setAuth(false);
-    //         this.setUser({})
-    //     } catch (e) {
-    //         console.log(e.response?.data?.message);
-    //     }
-    // }
+    async logout() {
+        try {
+            // const response = await AuthService.logout();
+            // console.log(response);
+            localStorage.removeItem('token');
+            localStorage.removeItem('token_ref')
+            this.setAuth(false);
+            this.setUser({})
+        } catch (e) {
+            console.log(e.response?.data?.message);
+        }
+    }
 
     async checkAuth() {
         try {
-            const response = await axios.post(`${API_URL}/refresh`, {withCredentials: true});
-            localStorage.setItem('token', response.data.accessToken);
+            const token_ref = localStorage.getItem('token_ref')
+            const response = await axios.post(`${API_URL}/refresh`, {token_ref});
+            localStorage.setItem('token', response.data.access_token);
+            localStorage.setItem('token_ref', response.data['refresh token']);
             this.setAuth(true);
             this.setUser(response.data.user)
         } catch (e) {

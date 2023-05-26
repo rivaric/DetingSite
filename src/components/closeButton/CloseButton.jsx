@@ -1,9 +1,13 @@
-import './CloseButton.scss'
+import { Link } from 'react-router-dom';
+import './CloseButton.scss';
+import { useContext } from 'react';
+import { Context } from "../..";
 
 export default function CloseButton() {
-    return (
-        <button className="btn-close">
 
-        </button>
+    const {store} = useContext(Context);
+
+    return (
+        <Link className="btn-close" to="/" onClick={() => store.logout()} />
     )
 }

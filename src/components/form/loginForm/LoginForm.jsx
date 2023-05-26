@@ -19,10 +19,11 @@ export default observer(function LoginForm() {
                     <input 
                         onChange={e => setEmail(e.target.value)}
                         value={email}
-                        type="text" 
+                        type="text"
                         className="email inputForm" 
                         placeholder="email"
                         />
+
                     <br/>
                     <input
                         onChange={e => setPassword(e.target.value)}
@@ -31,21 +32,22 @@ export default observer(function LoginForm() {
                         className="pwd inputForm" 
                         placeholder="password"
                         />
+                    <br/>
+                    <Link to='/register'>
+                        <button className='buttonForm'>
+                            <span>register</span>
+                        </button>
+                    </Link>
+                    <Link to='/main'>
+                        <button
+                            type='submit'
+                            onClick={() => store.login(email, password)}
+                            className='buttonForm'
+                            >
+                            <span>sign in</span>
+                        </button>
+                    </Link>
                 </form>
-                <br/>
-                <Link to='/register'>
-                    <button className='buttonForm'>
-                        <span>register</span>
-                    </button>
-                </Link>
-                <Link to='/main'>
-                    <button 
-                        onClick={() => store.login(email, password)} 
-                        className='buttonForm'
-                        >
-                        <span>sign in</span>
-                    </button>
-                </Link>
             </div>
         </>
     )
